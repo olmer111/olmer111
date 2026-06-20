@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bumo · Poster Kawaii | lep.ai</title>
+<meta name="description" content="Bumo, el osito kawaii que convierte tu cuarto en tu lugar feliz. Posters de arte tierno por lep.ai. Envío gratis en pedidos +$35." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --mint-50:#f3faf6;
+    --mint-100:#e3f4ec;
+    --mint-200:#cdeadd;
+    --mint-300:#a9dbc6;
+    --mint-400:#84c9ab;
+    --mint-600:#4f9e80;
+    --cream:#fbf8ef;
+    --cream-deep:#f6f0e0;
+    --ink:#3f5a4f;
+    --ink-soft:#6f8a7e;
+    --pink:#f7a9b8;
+    --pink-deep:#f0728c;
+    --peach:#ffd6c4;
+    --gold:#e9c46a;
+    --shadow:0 18px 40px -18px rgba(79,158,128,.45);
+    --radius:22px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Nunito',system-ui,sans-serif;
+    color:var(--ink);
+    background:
+      radial-gradient(circle at 12% 10%, #fff 0, transparent 40%),
+      repeating-conic-gradient(from 0deg, var(--mint-100) 0% 25%, var(--cream) 0% 50%) 0 0/56px 56px;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.brand{font-family:'Baloo 2',cursive}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+  .pill{border-radius:999px}
+
+  /* ===== ANNOUNCEMENT BAR ===== */
+  .announce{
+    background:linear-gradient(90deg,var(--mint-400),var(--mint-300));
+    color:#244b3c;text-align:center;font-weight:700;
+    font-size:.85rem;letter-spacing:.3px;padding:9px 12px;
+  }
+
+  /* ===== HEADER ===== */
+  header{
+    position:sticky;top:0;z-index:40;
+    background:rgba(251,248,239,.82);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--mint-200);
+  }
+  .nav{display:flex;align-items:center;gap:28px;padding:14px 22px;max-width:1180px;margin:0 auto}
+  .brand{display:flex;align-items:center;gap:9px;font-size:1.5rem;font-weight:800;color:var(--mint-600)}
+  .brand .dot{width:34px;height:34px;border-radius:12px;background:linear-gradient(135deg,var(--mint-300),var(--pink));
+    display:grid;place-items:center;font-size:1.2rem;box-shadow:var(--shadow)}
+  .menu{display:flex;gap:24px;margin-left:18px;font-weight:700;font-size:.95rem;color:var(--ink-soft)}
+  .menu a{transition:color .2s}
+  .menu a:hover{color:var(--mint-600)}
+  .nav-actions{margin-left:auto;display:flex;gap:16px;font-size:1.15rem;color:var(--mint-600)}
+  .nav-actions span{position:relative;cursor:pointer}
+  .nav-actions .cart-count{position:absolute;top:-7px;right:-9px;background:var(--pink-deep);color:#fff;
+    font-size:.62rem;font-weight:800;width:16px;height:16px;border-radius:50%;display:grid;place-items:center;font-family:'Nunito'}
+
+  /* ===== HERO ===== */
+  .hero{display:grid;grid-template-columns:1.05fr 1fr;gap:46px;padding:42px 0 30px;align-items:start}
+  .gallery{position:relative}
+  .stage{
+    position:relative;border-radius:var(--radius);overflow:hidden;
+    background:
+      radial-gradient(circle at 30% 25%, #fff 0, transparent 55%),
+      linear-gradient(160deg,var(--mint-200),var(--peach) 130%);
+    box-shadow:var(--shadow);padding:26px;
+  }
+  .stage::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(circle at 70% 80%, rgba(247,169,184,.25), transparent 50%)}
+  .poster-frame{
+    background:#fff;border-radius:14px;padding:14px;
+    box-shadow:0 22px 45px -16px rgba(63,90,79,.5);
+    border:6px solid #fff;transform:rotate(-1deg);
+    transition:transform .4s;
+  }
+  .poster-frame:hover{transform:rotate(0deg) scale(1.01)}
+  .poster-frame img{border-radius:6px}
+  .badge-bestseller{
+    position:absolute;top:18px;left:18px;z-index:3;
+    background:var(--pink);color:#fff;font-weight:800;
+    padding:9px 14px;border-radius:14px;font-size:.72rem;text-align:center;line-height:1.2;
+    box-shadow:var(--shadow)
+  }
+  .badge-bestseller small{display:block;font-size:.62rem;opacity:.9;font-weight:700}
+  .sold-today{
+    position:absolute;top:78px;left:18px;z-index:3;
+    background:rgba(255,255,255,.9);color:var(--mint-600);font-weight:800;
+    padding:7px 12px;border-radius:12px;font-size:.78rem;box-shadow:var(--shadow)
+  }
+  .sold-today small{display:block;font-size:.6rem;color:var(--ink-soft);font-weight:700;letter-spacing:.5px}
+  .thumbs{display:flex;gap:10px;margin-top:14px}
+  .thumbs button{
+    flex:1;border:2px solid var(--mint-200);background:#fff;border-radius:14px;
+    padding:6px;cursor:pointer;transition:.2s;overflow:hidden
+  }
+  .thumbs button.active,.thumbs button:hover{border-color:var(--mint-400);box-shadow:var(--shadow)}
+  .thumbs img{border-radius:8px;aspect-ratio:1;object-fit:cover}
+
+  /* ===== PRODUCT INFO ===== */
+  .eyebrow{display:inline-flex;align-items:center;gap:6px;color:var(--mint-600);
+    font-weight:800;letter-spacing:1.5px;font-size:.72rem;text-transform:uppercase}
+  .title{font-size:2.9rem;line-height:1.02;margin:12px 0 4px;color:var(--ink)}
+  .title .l2{color:var(--mint-600)}
+  .heart{color:var(--pink-deep)}
+  .subtitle{font-size:1.12rem;color:var(--ink-soft);font-weight:700;margin-bottom:14px}
+  .rating{display:flex;align-items:center;gap:8px;font-weight:700;color:var(--ink-soft);font-size:.92rem}
+  .stars{color:var(--gold);letter-spacing:1px;font-size:1rem}
+  .vibe{margin:14px 0 22px;font-weight:800;font-size:1.05rem}
+  .vibe .hl{color:var(--pink-deep)}
+
+  .field-label{display:flex;justify-content:space-between;align-items:center;
+    font-weight:800;font-size:.74rem;letter-spacing:1.2px;text-transform:uppercase;color:var(--ink-soft);margin-bottom:9px}
+  .field-label a{color:var(--mint-600);text-transform:none;letter-spacing:0;font-size:.8rem}
+  .sizes{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:20px}
+  .sizes button{
+    border:2px solid var(--mint-200);background:#fff;color:var(--ink);
+    font-weight:800;font-family:'Nunito';padding:10px 16px;border-radius:12px;cursor:pointer;
+    font-size:.9rem;transition:.18s
+  }
+  .sizes button:hover{border-color:var(--mint-300)}
+  .sizes button.active{background:var(--mint-100);border-color:var(--mint-400);color:var(--mint-600);box-shadow:var(--shadow)}
+
+  .swatches{display:flex;gap:12px;margin-bottom:24px}
+  .swatches button{width:40px;height:40px;border-radius:50%;border:3px solid #fff;cursor:pointer;
+    box-shadow:0 0 0 2px var(--mint-200);transition:.18s;position:relative}
+  .swatches button.active{box-shadow:0 0 0 3px var(--mint-600);transform:scale(1.08)}
+  .sw-mint{background:#bfe6d3}.sw-cream{background:#f4ecd6}.sw-pink{background:#f9c2cf}
+  .sw-lav{background:#cfc4ec}.sw-peach{background:#ffd1bd}
+
+  .price-row{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
+  .price{font-family:'Baloo 2';font-size:2.4rem;font-weight:800;color:var(--ink)}
+  .price-old{font-size:1.2rem;color:var(--ink-soft);text-decoration:line-through;opacity:.7}
+  .price-save{background:var(--pink);color:#fff;font-weight:800;font-size:.72rem;padding:4px 10px;border-radius:999px}
+  .ship-note{color:var(--ink-soft);font-weight:700;font-size:.82rem;margin-bottom:16px}
+
+  .qty-cta{display:flex;gap:12px;margin-bottom:12px}
+  .qty{display:flex;align-items:center;border:2px solid var(--mint-200);border-radius:14px;background:#fff;overflow:hidden}
+  .qty button{border:0;background:transparent;font-size:1.3rem;width:42px;cursor:pointer;color:var(--mint-600);font-weight:800}
+  .qty input{width:38px;text-align:center;border:0;font-weight:800;font-size:1rem;color:var(--ink);font-family:'Nunito'}
+  .btn-cart{
+    flex:1;border:0;cursor:pointer;border-radius:14px;color:#fff;font-family:'Baloo 2';
+    font-weight:800;font-size:1.05rem;letter-spacing:.5px;
+    background:linear-gradient(90deg,var(--pink),var(--pink-deep));
+    box-shadow:0 14px 26px -10px rgba(240,114,140,.7);transition:.2s
+  }
+  .btn-cart:hover{transform:translateY(-2px);box-shadow:0 18px 30px -10px rgba(240,114,140,.8)}
+  .btn-paypal{
+    width:100%;border:0;cursor:pointer;border-radius:14px;padding:13px;margin-bottom:16px;
+    background:#ffc439;color:#0a3d62;font-weight:800;font-size:1rem;transition:.2s;font-family:'Nunito'
+  }
+  .btn-paypal i{font-style:italic;font-weight:800}
+  .btn-paypal:hover{filter:brightness(.97)}
+
+  .trust{display:flex;gap:8px;justify-content:space-between;border-top:1px dashed var(--mint-300);padding-top:16px}
+  .trust div{display:flex;align-items:center;gap:7px;font-weight:700;font-size:.78rem;color:var(--ink-soft)}
+  .trust .ic{font-size:1rem}
+
+  /* ===== BENEFITS ===== */
+  .benefits{background:linear-gradient(180deg,transparent,var(--mint-50));padding:48px 0}
+  .benefits-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+  .benefit{background:#fff;border-radius:18px;padding:22px 16px;text-align:center;box-shadow:var(--shadow);
+    border:1px solid var(--mint-100);transition:.25s}
+  .benefit:hover{transform:translateY(-5px)}
+  .benefit .ic{font-size:1.9rem;display:block;margin-bottom:10px}
+  .benefit h3{font-size:1rem;color:var(--mint-600);margin-bottom:5px}
+  .benefit p{font-size:.84rem;color:var(--ink-soft);font-weight:600}
+
+  /* ===== SOCIAL PROOF ===== */
+  .reviews{padding:54px 0}
+  .sec-head{text-align:center;margin-bottom:34px}
+  .sec-head h2{font-size:2.1rem;color:var(--ink)}
+  .sec-head p{color:var(--ink-soft);font-weight:700;margin-top:6px}
+  .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .review{background:#fff;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--mint-100)}
+  .review .space-photo{aspect-ratio:4/3;width:100%;object-fit:cover;background:var(--mint-100)}
+  .review-body{padding:18px}
+  .review .who{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+  .avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--mint-300),var(--pink));
+    display:grid;place-items:center;font-family:'Baloo 2';font-weight:800;color:#fff;font-size:1.1rem}
+  .who b{display:block;font-size:.95rem}
+  .who .stars{font-size:.85rem}
+  .who .verified{font-size:.68rem;color:var(--mint-600);font-weight:800}
+  .review p{font-size:.9rem;color:var(--ink);font-weight:600}
+
+  /* ===== FOOTER ===== */
+  footer{background:var(--mint-600);color:#eafaf2;padding:34px 0;text-align:center;margin-top:30px}
+  footer .brand{justify-content:center;color:#fff;margin-bottom:8px}
+  footer p{font-weight:700;font-size:.85rem;opacity:.9}
+  .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(120%);
+    background:var(--mint-600);color:#fff;padding:14px 24px;border-radius:14px;font-weight:800;
+    box-shadow:var(--shadow);transition:.35s;z-index:60}
+  .toast.show{transform:translateX(-50%) translateY(0)}
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width:900px){
+    .hero{grid-template-columns:1fr;gap:28px}
+    .benefits-grid{grid-template-columns:repeat(2,1fr)}
+    .reviews-grid{grid-template-columns:1fr}
+    .menu{display:none}
+    .title{font-size:2.3rem}
+  }
+  @media(max-width:520px){
+    .trust{flex-direction:column;gap:10px}
+    .benefits-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announce">🚚 Envío GRATIS en todos los pedidos superiores a $35 · Hecho con cariño en lep.ai 💚</div>
+
+<!-- HEADER -->
+<header>
+  <div class="nav">
+    <a href="#" class="brand"><span class="dot">🐻</span>lep.ai</a>
+    <nav class="menu">
+      <a href="#">Posters</a>
+      <a href="#">Bestsellers</a>
+      <a href="#">Bundles</a>
+      <a href="#">Nosotros</a>
+      <a href="#reviews">Reseñas</a>
+    </nav>
+    <div class="nav-actions">
+      <span>🔍</span>
+      <span>👤</span>
+      <span>🤍</span>
+      <span>🛍️<span class="cart-count" id="cartCount">0</span></span>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<main class="wrap">
+  <section class="hero">
+    <!-- GALLERY -->
+    <div class="gallery">
+      <div class="stage">
+        <span class="badge-bestseller">★ BEST<br>SELLER<small>nº1 esta semana</small></span>
+        <span class="sold-today">2,800+<small>VENDIDOS HOY</small></span>
+        <div class="poster-frame">
+          <img id="mainPoster" src="../assets/bumo-poster.jpg" alt="Poster Bumo, osito kawaii menta y crema" />
+        </div>
+      </div>
+      <div class="thumbs">
+        <button class="active"><img src="../assets/bumo-poster.jpg" alt="Bumo poster" /></button>
+        <button><img src="../assets/bumo-poster.jpg" alt="Bumo en habitación" /></button>
+        <button><img src="../assets/bumo-poster.jpg" alt="Bumo enmarcado" /></button>
+        <button><img src="../assets/bumo-poster.jpg" alt="Detalle Bumo" /></button>
+        <button><img src="../assets/bumo-poster.jpg" alt="Bumo cerca" /></button>
+      </div>
+    </div>
+
+    <!-- PRODUCT INFO -->
+    <div class="info">
+      <span class="eyebrow">✦ Tu rincón · Tu calma</span>
+      <h1 class="title">Un abrazo en tu pared.<br><span class="l2">Cada vez que lo miras. <span class="heart">♡</span></span></h1>
+      <p class="subtitle">Para el alma soñadora que quiere convertir su cuarto en su lugar feliz.</p>
+
+      <div class="rating">
+        <span class="stars">★★★★★</span>
+        <span>4.9/5 · 2,847 clientas felices</span>
+      </div>
+
+      <p class="vibe">Arte tierno. <span class="hl">Buena energía.</span> Días más suaves.</p>
+
+      <!-- SIZE -->
+      <div class="field-label"><span>Elige tu tamaño</span><a href="#">📐 Guía de tallas</a></div>
+      <div class="sizes" id="sizes">
+        <button data-price="6.99">13×18 cm</button>
+        <button class="active" data-price="9.99">21×30 cm</button>
+        <button data-price="14.99">30×40 cm</button>
+        <button data-price="19.99">40×50 cm</button>
+        <button data-price="26.99">50×70 cm</button>
+        <button data-price="34.99">60×90 cm</button>
+      </div>
+
+      <!-- COLOR -->
+      <div class="field-label"><span>Color de fondo</span></div>
+      <div class="swatches" id="swatches">
+        <button class="sw-mint active" title="Menta"></button>
+        <button class="sw-cream" title="Crema"></button>
+        <button class="sw-pink" title="Rosa"></button>
+        <button class="sw-lav" title="Lavanda"></button>
+        <button class="sw-peach" title="Durazno"></button>
+      </div>
+
+      <!-- PRICE -->
+      <div class="price-row">
+        <span class="price" id="price">$9.99</span>
+        <span class="price-old" id="priceOld">$19.99</span>
+        <span class="price-save">-50%</span>
+      </div>
+      <p class="ship-note">📦 Envío gratis en pedidos +$35 · Listo para enviar en 24h</p>
+
+      <!-- CTA -->
+      <div class="qty-cta">
+        <div class="qty">
+          <button id="minus">−</button>
+          <input id="qty" value="1" readonly />
+          <button id="plus">+</button>
+        </div>
+        <button class="btn-cart" id="addCart">AÑADIR AL CARRITO 🛍️</button>
+      </div>
+      <button class="btn-paypal">Comprar con <i>Pay</i><i style="color:#003087">Pal</i></button>
+
+      <!-- TRUST -->
+      <div class="trust">
+        <div><span class="ic">💚</span>Garantía de 30 días feliz</div>
+        <div><span class="ic">🔒</span>Pago 100% seguro</div>
+        <div><span class="ic">🎀</span>Hecho con cariño</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- BENEFITS -->
+<section class="benefits">
+  <div class="wrap">
+    <div class="benefits-grid">
+      <div class="benefit"><span class="ic">☀️</span><h3>Ilumina tu espacio</h3><p>Color y ternura que cambian tu cuarto al instante.</p></div>
+      <div class="benefit"><span class="ic">🫧</span><h3>Calma cada día</h3><p>Convierte tu rincón en un refugio suave.</p></div>
+      <div class="benefit"><span class="ic">🎁</span><h3>Regalo perfecto</h3><p>Tierno, único y siempre acierta.</p></div>
+      <div class="benefit"><span class="ic">✨</span><h3>Sube tu estética</h3><p>Bonito, soñado y listo para tu feed.</p></div>
+      <div class="benefit"><span class="ic">💚</span><h3>Energía feliz</h3><p>Arte pequeño, sonrisas enormes cada mañana.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Clientas reales. Reseñas reales. 💌</h2>
+      <p>Miles de rincones más felices gracias a Bumo</p>
+    </div>
+    <div class="reviews-grid">
+      <div class="review">
+        <img class="space-photo" src="../assets/bumo-poster.jpg" alt="Bumo en el cuarto de Valentina" />
+        <div class="review-body">
+          <div class="who">
+            <span class="avatar">V</span>
+            <div>
+              <b>Valentina R. <span class="verified">✓ Compra verificada</span></b>
+              <span class="stars">★★★★★</span>
+            </div>
+          </div>
+          <p>"Lo puse junto a mi cama y ahora despierto sonriendo. Es lo más tierno que tengo en mi cuarto. 🥹"</p>
+        </div>
+      </div>
+      <div class="review">
+        <img class="space-photo" src="../assets/bumo-poster.jpg" alt="Bumo en el escritorio de Sofía" />
+        <div class="review-body">
+          <div class="who">
+            <span class="avatar">S</span>
+            <div>
+              <b>Sofía L. <span class="verified">✓ Compra verificada</span></b>
+              <span class="stars">★★★★★</span>
+            </div>
+          </div>
+          <p>"Lo compré de regalo para mi hermana y se obsesionó. Los colores son aún más bonitos en persona. 💚"</p>
+        </div>
+      </div>
+      <div class="review">
+        <img class="space-photo" src="../assets/bumo-poster.jpg" alt="Bumo en la sala de Mariana" />
+        <div class="review-body">
+          <div class="who">
+            <span class="avatar">M</span>
+            <div>
+              <b>Mariana T. <span class="verified">✓ Compra verificada</span></b>
+              <span class="stars">★★★★★</span>
+            </div>
+          </div>
+          <p>"Mi rincón de estudio se siente como un abrazo. Bumo me da paz cada vez que lo miro. ✨"</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="brand"><span class="dot" style="width:30px;height:30px">🐻</span>lep.ai</div>
+    <p>Arte tierno que abraza tu espacio · Envío gratis +$35 · Garantía de 30 días feliz 💚</p>
+  </div>
+</footer>
+
+<div class="toast" id="toast">🛍️ ¡Bumo añadido al carrito!</div>
+
+<script>
+  // Size selector → updates price
+  const sizes=document.querySelectorAll('#sizes button');
+  const priceEl=document.getElementById('price');
+  const priceOldEl=document.getElementById('priceOld');
+  sizes.forEach(b=>b.addEventListener('click',()=>{
+    sizes.forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    const p=parseFloat(b.dataset.price);
+    priceEl.textContent='$'+p.toFixed(2);
+    priceOldEl.textContent='$'+(p*2).toFixed(2);
+  }));
+
+  // Color swatches
+  const sw=document.querySelectorAll('#swatches button');
+  sw.forEach(b=>b.addEventListener('click',()=>{
+    sw.forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+  }));
+
+  // Quantity
+  const qty=document.getElementById('qty');
+  document.getElementById('plus').onclick=()=>qty.value=+qty.value+1;
+  document.getElementById('minus').onclick=()=>qty.value=Math.max(1,+qty.value-1);
+
+  // Add to cart
+  const cartCount=document.getElementById('cartCount');
+  const toast=document.getElementById('toast');
+  document.getElementById('addCart').onclick=()=>{
+    cartCount.textContent=+cartCount.textContent+ +qty.value;
+    toast.classList.add('show');
+    setTimeout(()=>toast.classList.remove('show'),2200);
+  };
+
+  // Thumbnails active state
+  document.querySelectorAll('.thumbs button').forEach(b=>b.addEventListener('click',()=>{
+    document.querySelectorAll('.thumbs button').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+  }));
+</script>
+</body>
+</html>
