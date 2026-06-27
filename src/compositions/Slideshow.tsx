@@ -1,6 +1,7 @@
 import React from 'react';
 import { AbsoluteFill, Img, useCurrentFrame, useVideoConfig, staticFile, interpolate, Audio } from 'remotion';
 import { IMAGE_TIMELINE, TOTAL_DURATION_SECONDS } from '../data/images';
+import { AUDIO_TIMELINE } from '../data/audio_timeline';
 
 const FADE_FRAMES = 8; // crossfade duration in frames
 
@@ -36,8 +37,14 @@ export const Slideshow: React.FC = () => {
 
   return (
     <AbsoluteFill style={{ background: '#000' }}>
-      {/* Narration audio */}
-      <Audio src={staticFile('guion_completo.mp3')} />
+      {/* Narration audio segments */}
+      {AUDIO_TIMELINE.map((audio) => (
+        <Audio
+          key={audio.id}
+          src={staticFile(audio.filename)}
+          startFrom={Math.round(audio.startSecond * fps)}
+        />
+      ))}
 
       {/* Current image */}
       <AbsoluteFill style={{ opacity: currentOpacity }}>
