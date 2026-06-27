@@ -5,6 +5,9 @@ import { renderMedia, selectComposition } from '@remotion/renderer';
 const OUTPUT_DIR = path.join(process.cwd(), 'out');
 const ENTRY_POINT = path.join(process.cwd(), 'src', 'index.ts');
 
+// headless_shell preinstalado; Chromium 141+ eliminó el headless antiguo que usaba Remotion
+const BROWSER_EXECUTABLE = '/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell';
+
 async function render(compositionId: string, outputFileName: string, props?: Record<string, unknown>) {
   console.log(`Bundling project...`);
   const bundled = await bundle({
@@ -17,6 +20,7 @@ async function render(compositionId: string, outputFileName: string, props?: Rec
     serveUrl: bundled,
     id: compositionId,
     inputProps: props ?? {},
+    browserExecutable: BROWSER_EXECUTABLE,
   });
 
   const outputPath = path.join(OUTPUT_DIR, outputFileName);
@@ -28,6 +32,7 @@ async function render(compositionId: string, outputFileName: string, props?: Rec
     codec: 'h264',
     outputLocation: outputPath,
     inputProps: props ?? {},
+    browserExecutable: BROWSER_EXECUTABLE,
     onProgress: ({ progress }) => {
       process.stdout.write(`\rProgress: ${Math.round(progress * 100)}%`);
     },
