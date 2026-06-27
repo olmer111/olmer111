@@ -2,6 +2,10 @@ import React from 'react';
 import { AbsoluteFill, Img, useCurrentFrame, useVideoConfig, staticFile, interpolate, Audio } from 'remotion';
 import { IMAGE_TIMELINE, TOTAL_DURATION_SECONDS } from '../data/images';
 import { AUDIO_TIMELINE } from '../data/audio_timeline';
+import { IMAGE_ANIMATIONS, createDefaultAnimation } from '../data/animations';
+import { SUBTITLE_TIMELINE } from '../data/subtitles';
+import { AnimatedImage } from '../components/AnimatedImage';
+import { Subtitle } from '../components/Subtitle';
 
 const FADE_FRAMES = 8; // crossfade duration in frames
 
@@ -35,6 +39,17 @@ export const Slideshow: React.FC = () => {
     ? interpolate(framesUntilNext, [0, FADE_FRAMES], [1, 0], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' })
     : 0;
 
+  // Get animation config for current and next image
+  const currentAnimationConfig = IMAGE_ANIMATIONS[currentIdx] || createDefaultAnimation(current.num);
+  const nextAnimationConfig = next
+    ? IMAGE_ANIMATIONS[next.num] || createDefaultAnimation(next.num)
+    : null;
+
+  // Get active subtitle based on current time
+  const activeSubtitle = SUBTITLE_TIMELINE.find(
+    (s) => s.startSecond <= currentSecond && currentSecond < s.endSecond
+  );
+
   return (
     <AbsoluteFill style={{ background: '#000' }}>
       {/* Narration audio segments */}
@@ -46,23 +61,34 @@ export const Slideshow: React.FC = () => {
         />
       ))}
 
-      {/* Current image */}
-      <AbsoluteFill style={{ opacity: currentOpacity }}>
-        <Img
-          src={staticFile(`images/${current.filename}`)}
-          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-        />
-      </AbsoluteFill>
+      {/* Current image with Ken Burns animation */}
+      <AnimatedImage
+        src={staticFile(`images/${current.filename}`)}
+        animationConfig={currentAnimationConfig}
+        opacity={currentOpacity}
+        imageStartFrame={Math.round(current.startSecond * fps)}
+        imageEndFrame={nextStartFrame === Infinity ? frame + 1000 : nextStartFrame}
+        currentFrame={frame}
+      />
 
-      {/* Next image (pre-loaded for smooth crossfade) */}
+      {/* Next image (pre-loaded for smooth crossfade) with Ken Burns animation */}
       {next && (
-        <AbsoluteFill style={{ opacity: nextOpacity }}>
-          <Img
-            src={staticFile(`images/${next.filename}`)}
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-          />
-        </AbsoluteFill>
+        <AnimatedImage
+          src={staticFile(`images/${next.filename}`)}
+          animationConfig={nextAnimationConfig!}
+          opacity={nextOpacity}
+          imageStartFrame={nextStartFrame}
+          imageEndFrame={
+            currentIdx + 2 < IMAGE_TIMELINE.length
+              ? Math.round(IMAGE_TIMELINE[currentIdx + 2].startSecond * fps)
+              : frame + 1000
+          }
+          currentFrame={frame}
+        />
       )}
+
+      {/* Subtitle overlay */}
+      {activeSubtitle && <Subtitle segment={activeSubtitle} currentFrame={frame} />}
     </AbsoluteFill>
   );
 };
