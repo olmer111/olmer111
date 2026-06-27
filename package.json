@@ -1,0 +1,36 @@
+{
+  "name": "olmer111",
+  "version": "1.0.0",
+  "description": "Proyecto de edición de vídeo automática con Remotion y FFmpeg",
+  "main": "index.js",
+  "remotion": {
+    "entryPoint": "src/index.ts"
+  },
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "render": "ts-node src/render.ts",
+    "render:hello": "ts-node src/render.ts HelloWorld hello-world.mp4",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://local_proxy@127.0.0.1:41729/git/olmer111/olmer111"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@remotion/bundler": "^4.0.484",
+    "@remotion/cli": "^4.0.484",
+    "@remotion/renderer": "^4.0.484",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "remotion": "^4.0.484"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.3"
+  }
+}
