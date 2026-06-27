@@ -1,0 +1,18 @@
+{
+  "jobs": [
+    {
+      "id": "a2e9f040-d4a8-4594-bea4-39d6d6f4b670",
+      "section": "APERTURA",
+      "duration": 87.36,
+      "status": "completed",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FKUkGuktev4IVwdMO83HhNLsQE/hf_20260627_170000_a2e9f040-d4a8-4594-bea4-39d6d6f4b670.mp3"
+    },
+    {
+      "id": "8692ea15-da92-4c90-974f-94ce036ac831",
+      "section": "FUEGO_PARTE_2",
+      "duration": "pending",
+      "status": "pending",
+      "url": null
+    }
+  ]
+}
